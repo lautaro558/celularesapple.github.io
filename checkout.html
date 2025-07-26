@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APPLE</title>
+  <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body>
+  <header>
+    <h1>APPLE</h1>
+  </header>
+  <main>
+    <h2>Formulario de Compra</h2>
+    <form onsubmit="return finalizarCompra()">
+      <label>Nombre: <input type="text" required></label><br><br>
+      <label>Email: <input type="email" required></label><br><br>
+      <label>Dirección: <input type="text" required></label><br><br>
+      <button type="submit">Terminar de pagar</button>
+    </form>
+  </main>
+  <footer>
+    <p>Apple Inc. - Todos los derechos reservados</p>
+    <p>Contacto: contacto@apple.com | 0800-APPLE</p>
+  </footer>
+  <script>
+    function finalizarCompra() {
+      const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+      if (carrito.length > 0) {
+        const producto = carrito[0].nombre;
+        let link = "https://www.mercadopago.com.ar";
+        if (producto.includes("16")) link = "https://mpago.la/iphone16";
+        else if (producto.includes("15")) link = "https://mpago.la/iphone15";
+        else if (producto.includes("14")) link = "https://mpago.la/iphone14";
+        else if (producto.includes("13")) link = "https://mpago.la/iphone13";
+        else if (producto.includes("SE")) link = "https://mpago.la/iphonese";
+        else link = "https://mpago.la/iphone12";
+        window.location.href = link;
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
