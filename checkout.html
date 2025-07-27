@@ -27,14 +27,17 @@
     function finalizarCompra() {
       const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
       if (carrito.length > 0) {
-        const producto = carrito[0].nombre;
-        let link = "https://www.mercadopago.com.ar";
-        if (producto.includes("16")) link = "https://mpago.la/iphone16";
-        else if (producto.includes("15")) link = "https://mpago.la/iphone15";
-        else if (producto.includes("14")) link = "https://mpago.la/iphone14";
-        else if (producto.includes("13")) link = "https://mpago.la/iphone13";
-        else if (producto.includes("SE")) link = "https://mpago.la/iphonese";
-        else link = "https://mpago.la/iphone12";
+         const enlacesPago = {
+    "iPhone 16 Pro Max": "https://www.mercadopago.com.ar/link1",
+    "iPhone 16 Pro": "https://www.mercadopago.com.ar/link2",
+    "iPhone 16": "https://www.mercadopago.com.ar/link3",
+    "iPhone 15 Pro Max": "https://www.mercadopago.com.ar/link4",
+    "iPhone 15 Pro": "https://www.mercadopago.com.ar/link5",
+    "iPhone 15": "https://www.mercadopago.com.ar/link6",
+    "iPhone 14 Pro Max": "https://www.mercadopago.com.ar/link7",
+    "iPhone 14 Pro": "https://www.mercadopago.com.ar/link8",
+    "iPhone 13": "https://www.mercadopago.com.ar/link9",
+    "iPhone SE": "https://www.mercadopago.com.ar/link10"
         window.location.href = link;
       }
       return false;
