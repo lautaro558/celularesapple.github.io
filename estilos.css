@@ -62,3 +62,16 @@ footer {
 .carrito.oculto {
   transform: translateX(100%);
 }
+.apple-logo {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 40px; /* Tamaño del logo */
+  height: auto;
+  z-index: 1000;
+}
+
+.apple-logo img {
+  width: 100%;
+  height: auto;
+}
