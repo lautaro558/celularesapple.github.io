@@ -22,3 +22,13 @@ function irAlCheckout() {
 document.getElementById("toggle-carrito").addEventListener("click", () => {
   document.getElementById("carrito").classList.toggle("oculto");
 });
+<script>
+  let contador = 0;
+
+  function agregarAlCarrito() {
+    contador++;
+    const span = document.getElementById("contador-carrito");
+    span.textContent = contador;
+    span.style.display = "inline-block"; // Lo muestra si estaba oculto
+  }
+</script>
